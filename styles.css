@@ -1,0 +1,150 @@
+:root {
+  --color-cream: hsl(30, 38%, 92%);
+  --color-dark-cyan: hsl(158, 36%, 37%);
+  --color-dark-grayish-blue: hsl(228, 12%, 48%);
+  --color-very-dark-blue: hsl(212, 21%, 14%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  align-items: center;
+  background: var(--color-cream);
+  display: grid;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  grid-template-columns: repeat(1, 350px);
+  grid-template-rows: repeat(1, 1fr);
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card__img {
+  background: url(images/image-product-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 250px;
+  max-width: 100%;
+}
+
+.card__header {
+  padding: 1.5rem 2.8rem 2.8rem 2.8rem;
+}
+
+.card__header-perfume {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.card__header-product {
+  color: var(--color-very-dark-blue);
+  font-size: 3.2rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card__header-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.card__price {
+  display: flex;
+  margin-top: 2.5rem;
+}
+
+.card__price-discounted {
+  color: var(--color-dark-cyan);
+  font-size: 3rem;
+}
+
+.card__price-discounted::after {
+  bottom: 0.5rem;
+  content: "$169.99";
+  font-size: 1.4rem;
+  font-weight: 500;
+  left: 2rem;
+  position: relative;
+  text-decoration: line-through;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.card__cart-btn {
+  background: var(--color-dark-cyan);
+  border-radius: 10px;
+  border: 0;
+  color: var(--color-white);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.card__cart-btn::before {
+  content: url(images/icon-cart.svg);
+  position: relative;
+  right: 1rem;
+  top: 0.2rem;
+}
+
+.card__cart-btn:hover {
+  background: hsl(158, 36%, 27%);
+  cursor: pointer;
+}
+
+.card__header-perfume,
+.card__header-description,
+.card__price-discounted::after {
+  color: var(--color-dark-grayish-blue);
+}
+
+.card__header-product,
+.card__price-discounted {
+  font-family: "Fraunces", Times, serif;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    grid-template-columns: repeat(1, 600px);
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+  }
+
+  .card__img {
+    background: url(images/image-product-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1/2;
+    height: auto;
+  }
+
+  .card__header {
+    grid-column: 2/3;
+    padding: 2.8rem;
+    padding-left: 3rem;
+  }
+}
